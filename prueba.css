@@ -1,0 +1,20 @@
+
+			*{
+				color:gray;
+				font-size: 40px;
+			}
+			p{
+				color:red;
+				font-size:12px;
+			}
+			.parrafo{
+				color:blue;
+			}
+			#asd1{
+				color:gray;
+			}
+			#divlinks>a{
+				background: red;
+				color:white;
+				font-size: 25px;
+			}
