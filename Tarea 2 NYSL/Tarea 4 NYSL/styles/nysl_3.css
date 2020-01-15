@@ -165,6 +165,73 @@ iframe{
 	flex-direction: row;
 	flex-wrap:wrap;
 	justify-content: space-around;
-	width:center;
 	align-items: center;
+}
+form{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+input[type=text]{
+	width: 100%;
+	padding: 14px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 4px;
+  	box-sizing: border-box;
+ 	align-items: center;
+
+}
+input[type=date], select{
+	width:100%;
+ 	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	align-items: center;
+}
+.formnombres{
+	width:49.5%;
+}
+.formlocation{
+	width:33%;
+}
+form>div{
+	margin-bottom:15px;
+}
+#formgender{
+	width: 15%;
+}
+#formgrade{
+	width: 34.5%;
+}
+.radiocenter{
+	padding-top:13px;
+	padding-left:15px;
+}
+#formgender>label, #formgrade>label{
+	padding-left:15px;
+}
+.labeltitle{
+	width: 100%;
+	margin-bottom: -0.2%;
+	padding-left: 2px;
+}
+#termsagree{
+	margin-top:3%;
+	padding:3%;
+	background: white;
+	border:1px solid gray;
+	border-radius:10px;
+}
+.formparentsinfo {
+	margin-top: 30px;
+	width: 40%;
+}
+input[type=submit]{
+	margin-top: 117%;
 }
