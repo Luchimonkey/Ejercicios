@@ -50,19 +50,35 @@
 					<div id="formgender">
 						<label>Gender</label>
 						<div class="radiocenter">
-							<input type="radio" name="gender" value="Male">Male <br>
-							<input type="radio" name="gender" value="Female">Female
+							<label for="genderfe">
+								<input id="genderfe" type="radio" name="gender" value="Female">Female <br>
+							</label>
+							<label for="genderma">
+								<input id="genderma" type="radio" name="gender" value="Male">Male <br>
+							</label>
 						</div>
 					</div>
 					<div id="formgrade">
 						<label>Grade</label>
 						<div class="radiocenter">
-							<input type="radio" name="grade" value="preschool">Pre-School
-							<input type="radio" name="grade" value="first">1st
-							<input type="radio" name="grade" value="second">2nd
-							<input type="radio" name="grade" value="third">3rd
-							<input type="radio" name="grade" value="forth">4th
-							<input type="radio" name="grade" value="fifth">5th
+							<label for="gradepre">
+								<input id="gradepre" type="radio" name="grade" value="preschool">Pre-School
+							</label>
+							<label for="gradefir">
+								<input id="gradefir" type="radio" name="grade" value="first">1st
+							</label>
+							<label for="gradese">
+								<input id="gradese" type="radio" name="grade" value="second">2nd
+							</label>
+							<label for="gradeth">
+								<input id="gradeth" type="radio" name="grade" value="third">3rd
+							</label>
+							<label for="gradefo">
+								<input id="gradefo" type="radio" name="grade" value="forth">4th
+							</label>
+							<label for="gradefi">
+								<input id="gradefi" type="radio" name="grade" value="fifth">5th
+							</label>
 						</div>
 					</div>
 					<div class="formlocation">
@@ -104,46 +120,92 @@
 					</div>
 					<div class="formnombres">
 						<label><strong>What positions do you usually play?</strong></label>(check all that apply)<br>
-						<input value="forward" type="checkbox" name="playposition">Forward <br>
-						<input value="defense" type="checkbox" name="playposition">Defense <br>
-						<input value="midfield" type="checkbox" name="playposition">Midfield <br>
-						<input value="goalkeeper" type="checkbox" name="playposition">Goalkeeper <br>
+						<label for="ppf">
+							<input value="forward" type="checkbox" name="playposition" id="ppf">Forward <br>	
+						</label>
+						<label for="ppd">
+							<input value="defense" type="checkbox" name="playposition" id="ppd">Defense <br>
+						</label>
+						<label for="ppm">
+							<input value="midfield" type="checkbox" name="playposition"	id="ppm">Midfield <br>
+						</label>
+						<label for="ppg">
+							<input value="goalkeeper" type="checkbox" name="playposition" id="ppg">Goalkeeper <br>
+						</label>
 					</div>
 					<div class="formnombres">
 						<label><strong>What positions do you want to play?</strong></label>(check all that apply)<br>
-						<input value="forward" type="checkbox" name="wantposition">Forward <br>
-						<input value="defense" type="checkbox" name="wantposition">Defense <br>
-						<input value="midfield" type="checkbox" name="wantposition">Midfield <br>
-						<input value="goalkeeper" type="checkbox" name="wantposition">Goalkeeper
+						<label for="wpf">
+							<input value="forward" type="checkbox" name="wantposition" id="wpf">Forward <br>
+						</label>
+						<label for="wpd">
+							<input value="defense" type="checkbox" name="wantposition" id="wpd">Defense <br>
+						</label>
+						<label for="wpm">
+							<input value="midfield" type="checkbox" name="wantposition" id="wpm">Midfield <br>
+						</label>
+						<label for="wpg">
+							<input value="goalkeeper" type="checkbox" name="wantposition" id="wpg">Goalkeeper
+						</label>
 					</div>
 					<div class="labeltitle">
-						<input type="checkbox" name="uniform"><strong>Already have an uniform</strong>
+						<label for="alreadyuniform">
+							<input id="alreadyuniform" type="checkbox" name="uniform"><strong>Already have an uniform</strong>
+						</label>
 					</div>
 					<div class="formnombres">
 						<label><strong>Jersey Size</strong></label>
 						<div>
-							<input type="radio" name="jerseysize" value="ys">Youth Small <br>
-							<input type="radio" name="jerseysize" value="ym">Youth Medium<br>
-							<input type="radio" name="jerseysize" value="yl">Youth Large<br>
-							<input type="radio" name="jerseysize" value="s">Small<br>
-							<input type="radio" name="jerseysize" value="m">Medium<br>
-							<input type="radio" name="jerseysize" value="l">Large<br>
-							<input type="radio" name="jerseysize" value="xl">Extra Large<br>
+							<label for="jsys">
+								<input id="jsys" type="radio" name="jerseysize" value="ys">Youth Small <br>
+							</label>
+							<label for="jsym">
+								<input id="jsym" type="radio" name="jerseysize" value="ym">Youth Medium<br>
+							</label>
+							<label for="jsyl">
+								<input id="jsyl" type="radio" name="jerseysize" value="yl">Youth Large<br>
+							</label>
+							<label for="jss">
+								<input id="jss" type="radio" name="jerseysize" value="s">Small<br>
+							</label>
+							<label for="jsm">
+								<input id="jsm" type="radio" name="jerseysize" value="m">Medium<br>
+							</label>
+							<label for="jsl">
+								<input id="jsl" type="radio" name="jerseysize" value="l">Large<br>
+							</label>
+							<label for="jsxl">
+								<input id="jsxl" type="radio" name="jerseysize" value="xl">Extra Large<br>
+							</label>
 						</div>
 					</div>
 					<div class="formnombres">
 						<label><strong>Shorts Size</strong></label>
 						<div>
-							<input type="radio" name="shortssize" value="ys">Youth Small<br>
-							<input type="radio" name="shortssize" value="ym">Youth Medium<br>
-							<input type="radio" name="shortssize" value="yl">Youth Large<br>
-							<input type="radio" name="shortssize" value="s">Small<br>
-							<input type="radio" name="shortssize" value="m">Medium<br>
-							<input type="radio" name="shortssize" value="l">Large<br>
-							<input type="radio" name="shortssize" value="xl">Extra Large<br>
+							<label for="ssys">
+								<input id="ssys" type="radio" name="shortssize" value="ys">Youth Small <br>
+							</label>
+							<label for="ssym">
+								<input id="ssym" type="radio" name="shortssize" value="ym">Youth Medium<br>
+							</label>
+							<label for="ssyl">
+								<input id="ssyl" type="radio" name="shortssize" value="yl">Youth Large<br>
+							</label>
+							<label for="sjss">
+								<input id="sjss" type="radio" name="shortssize" value="s">Small<br>
+							</label>
+							<label for="sjsm">
+								<input id="sjsm" type="radio" name="shortssize" value="m">Medium<br>
+							</label>
+							<label for="sjsl">
+								<input id="sjsl" type="radio" name="shortssize" value="l">Large<br>
+							</label>
+							<label for="ssxl">
+								<input id="ssxl" type="radio" name="shortssize" value="xl">Extra Large<br>
+							</label>
 						</div>
 					</div>
-					<p id="termsagree">I, the parent or guardian of the minor registrant, agree that the registrant and I will abide by all the rules of the Northside Youth
+					<p id="termsagree"><strong>Permission to Play</strong><br><br>I, the parent or guardian of the minor registrant, agree that the registrant and I will abide by all the rules of the Northside Youth
 					Soccer League (NYSL). In recognizing the possibility of physical injury associated with soccer and in consideration for the “League”
 					accepting the registrant for its soccer programs and activities, I hereby release, discharge, and/or otherwise indemnify NYSL, their employees and associated personnel and volunteers, including the facilities used for practices and games, against any claim by or on behalf of the registrant as a result of the registrant’s participation in the program and/or being transported to or from NYSL
 					sponsored activities, which transportation. By entering my name below, I hereby agree and authorize the above. In addition, by signing below, I also acknowledge that I have read the
