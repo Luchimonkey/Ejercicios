@@ -1,0 +1,249 @@
+*{
+	margin:0px;
+}
+#mainarticulos{
+	position:relative;
+	top:-13vw;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	top
+}
+
+header{
+	background-image: url(images/design3_image1.jpg);
+	height:20vw;
+	width:100%;
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+
+div>h2{
+	background:transparent;
+	color:white;
+	text-align:center;
+	font-size:3vw;
+	position:absolute;
+	display:block;
+	width:100%;
+	top:24vw;
+	font-family: Arial;
+	text-shadow: 2px 2px 0px black;
+}
+img.logoimg{
+	width:20vw;
+	height:20vw;
+	top:-20vw;
+	left:2vw;
+	position:relative;
+	z-index:99;
+}
+#titulo{
+	position:absolute;
+/*	-webkit-text-stroke: 2px black; */
+	text-shadow: 3px 3px 0px black;
+/*	text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; */
+	background:transparent;
+	text-align: right;
+	left:-1vw;
+	top:6.5vw;
+	font-size: 5vw;
+	font-family: helvetica;
+	font-style:normal;
+	color:white;
+	display:block;
+	width: 100%;
+}
+body>h1{
+	font-family: Arial;
+}
+body{
+	background:#70d252;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#flex{
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content: space-between;
+	margin:5vh 5vw;
+}
+#flex2{
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+.tabla{
+	width:50vw;
+}
+.articulos{
+	background:white;
+	width: 75%;
+	margin:20px;
+	color:black;
+	font-family: arial;
+	border:2px solid black;
+	padding:30px;
+}
+nav{
+	width:100vw;
+	background:#2d7418;
+	font-size:2vw;
+	position:absolute;
+	display:flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	top:20vw;
+	right:0px;
+	z-index: 999;
+	border-top:3px solid black;
+}
+nav>.link{
+	background:#2d7418;
+	border:1px solid transparent;
+	color:white;
+	font-family: helvetica;
+	font-style: normal;
+	padding:5px;
+	text-decoration: none;
+	text-align: center;
+/*	box-shadow: 3px 3px black; */
+}
+nav>.color{
+	background:#70d252;
+}
+nav>.link:hover{
+	background-color:#70d252;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+
+}
+.textodesc{
+	margin-left: 20px;
+	left:500px;
+}
+table{
+	border-collapse:collapse;
+	text-align:center;
+	margin:20px;
+}
+th, td{
+	border: 1px solid black;
+	padding: 10px;
+	width:40vw;
+	text-align: left;
+}
+section{
+	margin:5vh 5vw;
+}
+main>section>div>p{
+	text-decoration: underline;
+}
+.listaletra{
+	list-style-type: lower-alpha;
+}
+.listapblanco{
+	list-style-type: circle;
+}
+ul{
+	list-style-type: square;
+}
+#reglas>div{
+	margin-bottom:30px;
+}
+.subreglas{
+	margin:30px 0;
+}
+iframe{
+	width:32vw;
+	height:25vw;
+	border: 2px solid black;
+	margin:2vw;
+}
+.mapas{
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+form{
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	width: 100%;
+}
+input[type=text]{
+	width: 100%;
+	padding: 14px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 4px;
+  	box-sizing: border-box;
+ 	align-items: center;
+
+}
+input[type=date], select{
+	width:100%;
+ 	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 4px;
+	box-sizing: border-box;
+	align-items: center;
+}
+.formnombres{
+	width:49.5%;
+}
+.formlocation{
+	width:33%;
+}
+form>div{
+	margin-bottom:15px;
+}
+#formgender{
+	width: 15%;
+}
+#formgrade{
+	width: 34.5%;
+}
+.radiocenter{
+	padding-top:13px;
+	padding-left:15px;
+}
+#formgender>label, #formgrade>label{
+	padding-left:15px;
+}
+.labeltitle{
+	width: 100%;
+	margin-bottom: -0.2%;
+	padding-left: 2px;
+}
+#termsagree{
+	margin-top:3%;
+	padding:3%;
+	background: white;
+	border:1px solid gray;
+	border-radius:10px;
+}
+.formparentsinfo {
+	margin-top: 30px;
+	width: 40%;
+}
+input[type=submit]{
+	margin-top: 117%;
+}
+#sticky{
+	position:sticky;
+	top:-10vw;
+}
