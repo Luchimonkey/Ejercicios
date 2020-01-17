@@ -1,50 +1,32 @@
 *{
 	margin:0px;
 }
-#mainmainarticulos{
-	width: 100%;
-}
-.articulos{
-	background:white;
-	width: 85%;
-	margin:20px;
-	color:black;
-	font-family: arial;
-	border:2px solid black;
-	padding:30px;
-}
-#sticky{
-	position:sticky;
-	top:0px;
-}
-#cuerpoflex section div, #cuerpoflex>#homerules>#mainmainarticulos>#reglas{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: center;
-}
 header{
 	background-image: url(images/design3_image1.jpg);
-	height:15vw;
+	height:20vw;
 	width:100%;
 	background-repeat:no-repeat;
 	background-size: 100%;
 	background-position: center;
 }
 
-#titulo2{
+div>h2{
 	background:transparent;
 	color:white;
 	text-align:center;
-	font-size:2vw;
+	font-size:3vw;
+	position:absolute;
+	display:block;
 	width:100%;
+	top:24vw;
 	font-family: Arial;
 	text-shadow: 2px 2px 0px black;
 }
 img.logoimg{
-	width:15vw;
-	height:15vw;
-	left:2.5vw;
+	width:20vw;
+	height:20vw;
+	top:-20vw;
+	left:2vw;
 	position:relative;
 	z-index:99;
 }
@@ -55,8 +37,8 @@ img.logoimg{
 /*	text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black; */
 	background:transparent;
 	text-align: right;
-	top:4.5vw;
-	left:-3vw;
+	left:-1vw;
+	top:6.5vw;
 	font-size: 5vw;
 	font-family: helvetica;
 	font-style:normal;
@@ -89,12 +71,23 @@ body{
 .tabla{
 	width:50vw;
 }
-
+main{
+	background:white;
+	position:absolute;
+	width: 75%;
+	margin:20px;
+	left:8vw;
+	top:26vw;
+	color:black;
+	font-family: arial;
+	border:2px solid black;
+	padding:30px;
+}
 nav{
 	width:100vw;
 	background:#2d7418;
-	font-size:2.2vw;
-	position:relative;
+	font-size:2vw;
+	position:absolute;
 	display:flex;
 	flex-direction:row;
 	flex-wrap: wrap;
@@ -118,8 +111,8 @@ nav>.link{
 nav>.color{
 	background:#70d252;
 }
-#mainmainarticulos:hover{
-	background-color:black;
+nav>.link:hover{
+	background-color:#70d252;
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 	border-top: 1px solid black;
@@ -162,7 +155,7 @@ ul{
 	margin:30px 0;
 }
 iframe{
-	width:30vw;
+	width:32vw;
 	height:25vw;
 	border: 2px solid black;
 	margin:2vw;
@@ -170,6 +163,7 @@ iframe{
 .mapas{
 	display: flex;
 	flex-direction: row;
+	flex-wrap:wrap;
 	justify-content: space-around;
 	align-items: center;
 }

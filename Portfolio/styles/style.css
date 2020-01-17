@@ -1,0 +1,24 @@
+*{
+	margin:0;
+}
+@font-face {
+  font-family: "Champagne-Limousines-Italic";
+  src: url("fonts/Quelentaro Wallmapu St.ttf");
+}
+body{
+	background: #3C455B;
+}
+header{
+	height:14vw;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+h1{
+	color: #C7C7C7;
+	font-family: Champagne-limousines-italic;
+	font-size: 10vw;
+	position:absolute;
+	top:10%;
+	right:3%;
+	text-shadow: 0.5px 0 0 #E9650B, -0.5px 0 0 #E9650B, 0 0.5px 0 #E9650B, 0 -0.5px 0 #E9650B, 1px 1px #E9650B, -1px -1px 0 #E9650B, 1px -1px 0 #E9650B, -1px 1px 0 #E9650B;
+}
