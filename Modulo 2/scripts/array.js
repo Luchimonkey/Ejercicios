@@ -25,12 +25,16 @@ while (i<edades.length) {
 // --------------Lista de edades pares con while----------------
 
 console.log("Edades Pares con While")
-var edades=[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+var edades1=[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+let pares=[]
 var i=0;
-while (i<edades.length) {
-	console.log(edades[i])
-	i=i+2;
+while (i<edades1.length) {
+	if (edades1[i] % 2 === 0){
+		pares.push(edades1[i])
+	}
+	i++
 }
+console.log(pares)
 
 // --------------Lista de edades con for------------------
 
