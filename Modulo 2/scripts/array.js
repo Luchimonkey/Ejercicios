@@ -99,13 +99,15 @@ indexArray(matriz2)
 
 //-------------------------EJERCICIO 6----------------------------
 console.log("funcion que recibe arrays y muestra solo aquellos que se repiten")
-var matrizRepeat= [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100]
+var matrizRepeat= [3,6,67,6,23,11,100,8,93,0,17,24,7,1,33,45,28,33,23,12,99,100,33,33,33,33]
 var repetidos=[]
 function repeatArray(repeatArray){
 	for (let i = 0 ; i < repeatArray.length; i++){
 		for (let j = (i+1) ; j < repeatArray.length ; j++) {
 			if(repeatArray[i]==repeatArray[j]){
-				repetidos.push(repeatArray[i])
+				if(repetidos.indexOf(repeatArray[i])== (-1)){
+					repetidos.push(repeatArray[i])
+				}
 			}
 		}
 	}
