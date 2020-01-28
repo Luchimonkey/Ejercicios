@@ -1,0 +1,38 @@
+*{
+	background: gray;
+	font-family: helvetica;
+}
+th, td{
+	border:1px solid black;
+	border-radius:2px;
+	text-align: center;
+	padding:5px;
+	margin:-2px;
+	background: #e1e1e1;
+}
+nav{
+	display:none;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-around;
+}
+#divtabla{
+	display:flex;
+	width:100%;
+	margin:50px 0 0 0;
+	justify-content: space-around;
+}
+h2{
+	width:100%;
+	text-align: center;
+	color:white;
+	font-size:3vw;
+	text-shadow: 2px 2px 5px black;
+}
+div>p{
+	margin: 0 20px 0 20px;
+	background:#e1e1e1;
+	color:black;
+	border:1px solid black;
+	border-radius: 5px;
+}
