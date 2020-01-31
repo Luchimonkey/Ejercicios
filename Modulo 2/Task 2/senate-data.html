@@ -40,16 +40,24 @@
         <h2 class="card-title m-3">Senators</h2>
         <p class="card-body">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
     </div>
-    <div id="checkboxes" class="d-flex flex-row"> 
-        <strong>Filter by:<br></strong>
-        <div class="checkboxfilter">
-            <input value="democrat" type="checkbox" name="">Democrat
+    <div class="d-flex justify-content-between m-2 px-2">
+        <div class="d-flex flex-row"> 
+            <strong>Filter by:<br></strong>
+            <div class="checkboxfilter">
+                <input type="checkbox" name="D" class="input" checked>Democrat
+            </div>
+            <div class="checkboxfilter">
+                <input type="checkbox" name="R" class="input" checked>Republican
+            </div>
+            <div class="checkboxfilter">
+                <input type="checkbox" name="I" class="input" checked>Independent
+            </div>
         </div>
-        <div class="checkboxfilter">
-            <input value="republican" type="checkbox" name="">Republican
-        </div>
-        <div class="checkboxfilter">
-            <input value="independent" type="checkbox" name="">Independent
+        <div>
+            <strong>Party:</strong>
+            <select id="select" name="ALL">
+                <option value="all">All</option>
+            </select>
         </div>
     </div>
     <div id="divtabla">

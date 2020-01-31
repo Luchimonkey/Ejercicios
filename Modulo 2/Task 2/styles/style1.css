@@ -25,6 +25,9 @@
 strong{
 	margin-right:10px;
 }
-.checkboxfilter{
+.checkboxfilter, .dropdownfilter{
 	margin-right:10px;
+}
+body{
+	overflow-y: scroll;
 }
