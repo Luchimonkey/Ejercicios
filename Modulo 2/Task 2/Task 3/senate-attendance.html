@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>TGIF - Senate Attendance</title>
     <link rel="stylesheet" type="text/css" href="styles/style1.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -46,12 +47,12 @@
         </div>
     </nav>
 <!--Table container-->
-<div class="d-flex justify-content-around">
-    <div class="card border-dark m-3 col-5">
+<div class="d-flex divprincipal">
+    <div class="card border-dark" id="maindiv1">
         <h2 class="card-title m-3">Attendance</h2>
         <p class="card-body">The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.<br>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
     </div>
-    <div class="card border-dark m-3 col-5">
+    <div class="card border-dark" id="maindiv2">
         <h3 class="m-3">Senate at a glance</h3>
         <table class="table table-bordered table-hover">
             <thead class="thead-dark">
@@ -66,8 +67,9 @@
         </table>
     </div>
 </div>
-<div class="d-flex justify-content-around">
-    <div class="card border-dark col-5">
+<hr class="divisorchido">
+<div class="d-flex divprincipal">
+    <div class="card border-dark" id="maindiv3">
         <h3 class="m-3">Least Engaged (Bottom 10% Attendance)</h3>
         <table class="table table-bordered table-hover">
             <thead class="thead-dark">
@@ -81,7 +83,7 @@
             </tbody>
         </table>
     </div>
-    <div class="card border-dark col-5">
+    <div class="card border-dark" id="maindiv3">
         <h3 class="m-3">Most Engaged (Top 10% Attendance)</h3>
         <table class="table table-bordered table-hover">
             <thead class="thead-dark">
@@ -91,42 +93,7 @@
                     <th>% Missed</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>--</td>
-                    <td>--</td>
-                    <td>--</td>
-                </tr>
+            <tbody id="table3">
             </tbody>
         </table>
     </div>
