@@ -1,45 +1,58 @@
 const members=data.results[0].members.filter(j => j.total_votes !=0)
-let republicans=0
-let independents=0
-let democrats=0
-let republicansVotes=0
-let independentsVotes=0
-let democratsVotes=0
+
+let estadisticas = {
+
+	republicans:0,
+	independents:0,
+	democrats:0,
+	republicansVotes:0,
+	independentsVotes:0,
+	democratsVotes:0,
+	total:data.results[0].num_results,
+	totalPorcentaje:0,
+	leastEngaged : [],
+	leastLoyal : [],
+	mostEngaged : [],
+	mostLoyal : [],
+
+}
 
 //-----table1-----
 members.forEach(member =>{
 	if(member.party=="R"){
-		republicans=republicans+1
-		republicansVotes+=member.votes_with_party_pct
+		estadisticas.republicans++
+		estadisticas.republicansVotes+=member.votes_with_party_pct
 	}
 	if(member.party=="I"){
-		independents=independents+1
-		independentsVotes+=member.votes_with_party_pct
+		estadisticas.independents++
+		estadisticas.independentsVotes+=member.votes_with_party_pct
 	}
 	if(member.party=="D"){
-		democrats=democrats+1
-		democratsVotes+=member.votes_with_party_pct
+		estadisticas.democrats++
+		estadisticas.democratsVotes+=member.votes_with_party_pct
 	}
 
-	let total=democrats+republicans+independents
-	let republicansPercentage=parseFloat(republicansVotes/republicans).toFixed(2)
-	let independentsPercentage=parseFloat(independentsVotes/independents).toFixed(2)
-	let democratsPercentage=parseFloat(democratsVotes/democrats).toFixed(2)
-
-	if(republicans==0){
-		republicansPercentage="00.00"
-	}
-	if(independents==0){
-		independentsPercentage="00.00"
-	}
-	if(democrats==0){
-		democratsPercentage="00.00"
-	}
-
-	document.getElementById("table1").innerHTML = '<tr>' + '<td>' + 'Democrats' + '</td>' + '<td>' + democrats + '</td>' + '<td>' + democratsPercentage + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Republicans' + '</td>' + '<td>' + republicans + '</td>' + '<td>' + republicansPercentage + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Independents' + '</td>' + '<td>' + independents + '</td>' + '<td>' + independentsPercentage + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Total' + '</td>' + '<td colspan="2">' + total + '</td>' + '</tr>'
 })
+	
+	estadisticas.republicansVotes= + (parseFloat(estadisticas.republicansVotes/estadisticas.republicans).toFixed(2))
+	estadisticas.independentsVotes= + (parseFloat(estadisticas.independentsVotes/estadisticas.independents).toFixed(2))
+	estadisticas.democratsVotes= + (parseFloat(estadisticas.democratsVotes/estadisticas.democrats).toFixed(2))
 
+	if(estadisticas.republicans==0){
+		estadisticas.republicansVotes=0
+	}
+	if(estadisticas.independents==0){
+		estadisticas.independentsVotes=0
+	}
+	if(estadisticas.democrats==0){
+		estadisticas.democratsVotes=0
+	}
 
+	
+	estadisticas.totalPorcentaje = parseFloat((estadisticas.democratsVotes+estadisticas.republicansVotes+estadisticas.independentsVotes) / 3).toFixed(2)
+
+	
+	document.getElementById("table1").innerHTML = '<tr>' + '<td>' + 'Democrats' + '</td>' + '<td>' + estadisticas.democrats + '</td>' + '<td>' + estadisticas.democratsVotes + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Republicans' + '</td>' + '<td>' + estadisticas.republicans + '</td>' + '<td>' + estadisticas.republicansVotes + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Independents' + '</td>' + '<td>' + estadisticas.independents + '</td>' + '<td>' + estadisticas.independentsVotes + '%' + '</td>' + '</tr>' + '<tr>' + '<td>' + 'Total' + '</td>' + '<td>' + estadisticas.total + '</td>' + '<td>' + estadisticas.totalPorcentaje + '%</td>' + '</tr>'
 
 //-----table2-----
 let membersOrdLeast = members.sort(function(a,b){
@@ -52,13 +65,13 @@ let membersOrdLeast = members.sort(function(a,b){
 	return 0
 })
 
-let leastEngaged = []
+
 let tenPercent1 = (membersOrdLeast.length*0.10).toFixed(0)
 let filterLeast = membersOrdLeast[tenPercent1].missed_votes_pct
 membersOrdLeast.filter(element => element.missed_votes_pct>=filterLeast).forEach(e =>{
-	leastEngaged.push(e)
+	estadisticas.leastEngaged.push(e)
 })
-leastEngaged.forEach(missed=>{
+estadisticas.leastEngaged.forEach(missed=>{
 	let nombreFull = missed.first_name + " " + (missed.middle_name || " ") + " " + missed.last_name
 	if(document.getElementById("table2")){
 		document.getElementById("table2").innerHTML += `<tr><td>${nombreFull}</td><td>${missed.missed_votes}</td><td>${missed.missed_votes_pct}%</td></tr>`
@@ -74,12 +87,12 @@ let membersOrdLeastLoyal = members.sort(function (a,b){
 	}
 	return 0
 })
-leastLoyal = []
+
 let filterleastLoyal = membersOrdLeastLoyal[tenPercent1].votes_with_party_pct
 membersOrdLeastLoyal.filter(element => element.votes_with_party_pct<=filterleastLoyal).forEach(e =>{
-	leastLoyal.push(e)
+	estadisticas.leastLoyal.push(e)
 })
-leastLoyal.forEach(ll =>{
+estadisticas.leastLoyal.forEach(ll =>{
 	let nombreFull = ll.first_name + " " + (ll.middle_name || " ") + " " + ll.last_name
 	let partyVotes = ((ll.votes_with_party_pct/100)*ll.total_votes).toFixed(0)
 	if(document.getElementById("table4")){
@@ -101,13 +114,13 @@ let membersOrd = members.sort(function(a,b){
 	return 0
 })
 
-let mostEngaged = []
+
 let tenPercent = (membersOrd.length * 0.10).toFixed(0)
 let filter = membersOrd[tenPercent].missed_votes_pct
 membersOrd.filter(element => element.missed_votes_pct<=filter).forEach(e =>{
-	mostEngaged.push(e)
+	estadisticas.mostEngaged.push(e)
 })
-mostEngaged.forEach(missed =>{
+estadisticas.mostEngaged.forEach(missed =>{
 	let nombreFull = missed.first_name + " " + (missed.middle_name || " ") + " " + missed.last_name
 	if(document.getElementById("table3")){
 		document.getElementById("table3").innerHTML += `<tr><td>${nombreFull}</td><td>${missed.missed_votes}</td><td>${missed.missed_votes_pct}%</td></tr>`
@@ -123,12 +136,12 @@ let membersOrdMostLoyal = members.sort(function (a,b){
 	}
 	return 0
 })
-mostLoyal = []
+
 let filterMostLoyal = membersOrdMostLoyal[tenPercent].votes_with_party_pct
 membersOrdMostLoyal.filter(element => element.votes_with_party_pct>=filterMostLoyal).forEach(e =>{
-	mostLoyal.push(e)
+	estadisticas.mostLoyal.push(e)
 })
-mostLoyal.forEach(ll =>{
+estadisticas.mostLoyal.forEach(ll =>{
 	let nombreFull = ll.first_name + " " + (ll.middle_name || " ") + " " + ll.last_name
 	let partyVotes = ((ll.votes_with_party_pct/100)*ll.total_votes).toFixed(0)
 	if(document.getElementById("table5")){
