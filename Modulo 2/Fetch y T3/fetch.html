@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fetch</title>
+	<style type="text/css">
+		#gallery{
+			display: grid;
+			grid-template-columns: repeat(7,auto);
+			justify-content: center;
+			grid-gap: 5px;
+			
+		}
+
+		#gallery>div{
+			display: contents;
+		}
+
+		#gallery img{
+			width: inherit;
+			height: inherit;
+		}
+
+		#gallery img:hover{
+			transform: scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<div id="gallery">
+		
+	</div>
+</body>
+<script type="text/javascript">
+
+	let data
+	let url = "https://jsonplaceholder.typicode.com/photos"
+	let init = {
+		method: 'GET',
+	
+	}
+
+	
+
+	fetch(url, init)
+		.then(function(res){
+			if(res.ok){
+				return res.json()
+			} else{
+				throw new Error(res.status)
+			}
+		})
+		.then(function(json){
+			data = json
+			gallery(data)
+		})
+		.catch(function(error){
+			console.log(error)
+		})
+
+		console.log("hola")
+		
+
+		function gallery(json){
+			json.forEach(e => {
+				let img = new Image()
+				img.src = e.thumbnailUrl
+
+				let div = document.createElement('DIV')
+
+				div.appendChild(img)
+
+				document.getElementById("gallery").appendChild(div)
+			})
+		}
+
+		// async function getData(url,init){
+		// 	await fetch(url, init)
+		// 	.then(function(res){
+		// 		if(res.ok){
+		// 			return res.json()
+		// 		} else{
+		// 			throw new Error(res.status)
+		// 		}
+		// 	})
+		// 	.then(function(json){
+		// 		data = json
+		// 	})
+		// 	.catch(function(error){
+		// 		console.log(error)
+		// 	})
+
+		// 	gallery(data)
+			
+		// }
+
+
+
+</script>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Statistics</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>    
+    <body class="container-fluid">
+
+        <table class="table" class="table">
+            <thead>
+                <th>Party</th>
+                <th>Reps</th>
+                <th>Votes w/ party</th>
+            </thead>
+            <tbody id="atGlance">
+                
+            </tbody>
+        </table>
+        <div class="row justify-content-around">
+            <table class="table table-bordered col-md-5" id="least_loyal" class="table">
+                
+            </table>
+            <table class="table table-bordered col-md-5" id="most_loyal" class="table">
+                
+            </table>
+        </div>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    	<script src="pro-congress-113-senate.js"></script>
+    	<script>
+            //Statistics JSON Object
+    		const statistics = {
+    			democrats: 0,
+    			republicans: 0,
+    			independents: 0,
+    			total: 0,
+    			votes_dem: 0,
+    			votes_reps: 0,
+    			votes_ind: 0,
+    			total_votes: 0,
+    			least_loyal: [],
+    			most_loyal: [],
+    			least_engaged: [],
+    			most_engaged: [],
+    		}
+
+            //Global constants
+    		const members = data.results[0].members
+            const filter_members = members.filter(member => member.total_votes != 0)
+            
+            //Function calls
+            calculate()
+            fillAtGlanceTable()
+            createTables('most_engaged', statistics.most_engaged, "missed_votes_pct")
+            createTables('least_engaged', statistics.least_engaged, "missed_votes_pct")
+            createTables('least_loyal', statistics.least_loyal, "votes_with_party_pct")
+            createTables('most_loyal', statistics.most_loyal, "votes_with_party_pct")
+            
+            
+            //Functions
+
+            function calculate(){
+                let dVotes = 0
+                let rVotes = 0
+                let iVotes = 0
+
+                for(let i = 0; i < members.length; i++){
+                    switch(members[i].party){
+                        case "D":
+                            statistics.democrats ++
+                            dVotes += members[i].votes_with_party_pct
+                            break
+                        case "R":
+                            statistics.republicans ++
+                            rVotes += members[i].votes_with_party_pct
+                            break
+                        case "I":
+                            statistics.independents ++
+                            iVotes += members[i].votes_with_party_pct
+                            break
+                        default
+                        //escribir aca lo que hace en caso de no encontrar ninguno de los casos anteriores
+                    }
+                }
+
+                statistics.votes_dem = dVotes / statistics.democrats
+                statistics.votes_reps = rVotes / statistics.republicans
+                statistics.votes_ind = statistics.independents != 0 ?  iVotes / statistics.independents : "-" 
+
+
+
+                statistics.total = members.length
+                statistics.total_votes = (dVotes + rVotes + iVotes) / members.length
+
+                statistics.least_engaged = tenPct(filter_members,"missed_votes_pct",false)
+                statistics.most_engaged = tenPct(filter_members,"missed_votes_pct",true)
+                statistics.most_loyal = tenPct(filter_members,"votes_with_party_pct",false)
+                statistics.least_loyal = tenPct(filter_members,"votes_with_party_pct",true)
+            }
+    		
+            function tenPct(array,key,isAscendent){
+                let result
+                let i
+                let aux = isAscendent ? 
+                            [...array].sort((a,b) => a[key] - b[key]) 
+                        : 
+                            [...array].sort((a,b) => b[key] - a[key])
+                
+                let tenPct = parseInt(aux.length*0.1)
+
+                result = aux.slice(0,tenPct)
+
+
+                i = result.length
+
+                while(aux[i][key] == result[result.length - 1][key] && i < aux.length){
+                    result.push(aux[i])
+                    i++
+                }
+
+                return result
+
+            }
+
+            function fillAtGlanceTable(){
+                document.getElementById("atGlance").innerHTML = `<tr>
+                    <td>democrats</td>
+                    <td>${statistics.democrats}</td>
+                    <td>${statistics.votes_dem}</td>
+                </tr>
+                <tr>
+                    <td>republicans</td>
+                    <td>${statistics.republicans}</td>
+                    <td>${statistics.votes_reps}</td>
+                </tr>
+                <tr>
+                    <td>independents</td>
+                    <td>${statistics.independents}</td>
+                    <td>${statistics.votes_ind}</td>
+                </tr>
+                <tr>
+                    <td>total</td>
+                    <td>${statistics.total}</td>
+                    <td>${statistics.total_votes}</td>
+                </tr>
+                `
+            }
+
+            
+
+            function createTables(id,array,key){
+                if(document.getElementById(id)){
+                    let thead = `<thead>
+                                    <tr>
+                                        <th>Full Name</th>
+                                        <th>${key.replace(/_/g, " ").replace(/pct/, "")}</th>
+                                        <th>${key.replace(/_/g, " ").replace(/pct/, "%")}</th>
+                                    </tr>
+                                </thead>`
+                     let tbody = '<tbody>' +  array.map(e => {
+                                        return `<tr>
+                                                    <td>${e.last_name}</td>
+                                                    <td>${key == "missed_votes_pct" ? e.missed_votes : Math.round(e.votes_with_party_pct * e.total_votes / 100)}</td>
+                                                    <td>${e[key]}</td>
+                                                </tr>`
+                                    }).join('') + '</tbody>'
+
+                     document.getElementById(id).innerHTML = thead + tbody
+                }else{
+                    return 0
+                }
+                
+            }
+
+            
+
+        </script>
+</body>
+</html>
