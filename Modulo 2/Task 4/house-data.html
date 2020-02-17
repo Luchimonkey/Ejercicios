@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>  
 <body>
-    <header class="d-flex justify-content-between">
+  <div id="app">
+  <header class="d-flex justify-content-between">
     <div>
       <img src="images/tgiflogo.jpg" class="tgiflogo">  
     </div>
@@ -52,28 +53,21 @@
         <p class="card-body">The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.<br>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative.</p>
     </div>
     <div class="d-flex justify-content-between m-2 px-2">
-        <div class="d-flex flex-row"> 
+      <div class="d-flex flex-row">
           <strong>Filter by:<br></strong>
           <div class="checkboxfilter">
-              <label>Democrat</label>
-              <input type="checkbox" name="D" class="input" checked>
-          </div>
-          <div class="checkboxfilter">
-              <label>Republican</label>
-              <input type="checkbox" name="R" class="input" checked>
-          </div>
-          <div class="checkboxfilter">
-              <label>Independent</label>
-              <input type="checkbox" name="I" class="input" checked>
+              <label class="mx-2" v-for="party in partidos"><input v-model="partyValue" type="checkbox" name="party" class="input" :value="party.value" checked>
+                {{party.name}}</label>
           </div>
       </div>
-        <div>
-            <strong>State:</strong>
-            <select id="select" name="ALL">
-                <option value="all">All</option>
-            </select>
-        </div>
-    </div>
+      <div>
+          <strong>State:</strong>
+          <select v-model="state" id="select" name="ALL">
+              <option :value="filtrarEstados(members)">All</option>
+              <option v-for="state in filtrarEstados(members)">{{state}}</option>
+          </select>
+      </div>
+  </div>
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
@@ -85,14 +79,40 @@
             </tr>
         </thead>
         <tbody id="tablebody">
+          <tr v-for="(member, index) in filtrarMiembros">
+            <td>
+              <template v-if="member.url != ''">
+                <a :href="member.url">
+                  {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                </a>
+              </template>
+              <template v-else>
+                {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+              </template>
+            </td>
+            <td>
+              {{member.party}}
+            </td>
+            <td>
+              {{member.state}}
+            </td>
+            <td>
+              {{member.seniority}}
+            </td>
+            <td>
+              {{member.votes_with_party_pct}}%
+            </td>
+          </tr>
         </tbody>
     </table>
     <footer class="text-center bg-light m-4 p-1 border border-dark rounded">
       <p class="m-1 text-">2020 TGIF | All Rights Reserved</p>
     </footer>
+  </div>
+    <script src="https://unpkg.com/vue"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <!-- <script type="text/javascript" src="scripts/main.js"></script> -->
     <script type="text/javascript" src="scripts/mainfetch.js"></script></body>
 </html>

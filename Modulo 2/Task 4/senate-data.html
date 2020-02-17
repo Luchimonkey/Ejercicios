@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>  
 <body>
+  <div id="app">
   <header class="d-flex justify-content-between">
     <div>
       <img src="images/tgiflogo.jpg" class="tgiflogo">  
@@ -52,25 +53,18 @@
       <p class="card-body">First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
   </div>
   <div class="d-flex justify-content-between m-2 px-2">
-      <div class="d-flex flex-row"> 
+      <div class="d-flex flex-row">
           <strong>Filter by:<br></strong>
           <div class="checkboxfilter">
-              <label>Democrat</label>
-              <input type="checkbox" name="D" class="input" checked>
-          </div>
-          <div class="checkboxfilter">
-              <label>Republican</label>
-              <input type="checkbox" name="R" class="input" checked>
-          </div>
-          <div class="checkboxfilter">
-              <label>Independent</label>
-              <input type="checkbox" name="I" class="input" checked>
+              <label class="mx-2" v-for="party in partidos"><input v-model="partyValue" type="checkbox" name="party" class="input" :value="party.value" checked>
+                {{party.name}}</label>
           </div>
       </div>
       <div>
           <strong>State:</strong>
-          <select id="select" name="ALL">
-              <option value="all">All</option>
+          <select v-model="state" id="select" name="ALL">
+              <option :value="filtrarEstados(members)">All</option>
+              <option v-for="state in filtrarEstados(members)">{{state}}</option>
           </select>
       </div>
   </div>
@@ -86,16 +80,42 @@
               </tr>
           </thead>
           <tbody id="tablebody">
+            <tr v-for="(member, index) in filtrarMiembros">
+              <td>
+                <template v-if="member.url != ''">
+                  <a :href="member.url">
+                    {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                  </a>
+                </template>
+                <template v-else>
+                  {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                </template>
+              </td>
+              <td>
+                {{member.party}}
+              </td>
+              <td>
+                {{member.state}}
+              </td>
+              <td>
+                {{member.seniority}}
+              </td>
+              <td>
+                {{member.votes_with_party_pct}}%
+              </td>
+            </tr>
           </tbody>
       </table>
   </div>
   <footer class="text-center bg-light m-4 p-1 border border-dark rounded">
     <p class="m-1 text-">2020 TGIF | All Rights Reserved</p>
   </footer>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="scripts/main.js"></script>
+  <!-- <script type="text/javascript" src="scripts/main.js"></script> -->
   <script type="text/javascript" src="scripts/mainfetch.js"></script>
 </body>
 </html>

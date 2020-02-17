@@ -37,7 +37,3 @@ function drawTables(){
 	}	
 	filtrocheck()
 }
-
-
-
-
