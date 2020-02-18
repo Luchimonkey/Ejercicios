@@ -9,6 +9,10 @@ var app = new Vue({
 			}
 		},	
 		members:[],
+		least_engaged:[],
+		most_engaged:[],
+		least_loyal:[],
+		most_loyal:[],		
 		partyValue:["R", "I", "D"],
 		state:[],
 		partidos:{
@@ -30,6 +34,11 @@ var app = new Vue({
 				representantes: 0,
 				porcentaje: 0,
 			},
+			total:{
+				name: "Total",
+				representantes: 0,
+				porcentaje: 0,
+			}
 		},
 	},
 	created() {
@@ -52,6 +61,10 @@ var app = new Vue({
 				app.members=json.results[0].members
 				app.state=app.filtrarEstados(app.members)
 				app.primeraTabla()
+				app.least_engaged=app.tenPct(app.members,"missed_votes_pct",false)
+        		app.most_engaged=app.tenPct(app.members,"missed_votes_pct",true)
+        		app.most_loyal=app.tenPct(app.members,"votes_with_party_pct",false)
+		        app.least_loyal=app.tenPct(app.members,"votes_with_party_pct",true)
 			})
 			.catch(function(error){
 				console.log(error)
@@ -81,11 +94,11 @@ var app = new Vue({
 					app.partidos.democrats.representantes++
 					app.partidos.democrats.porcentaje+=member.votes_with_party_pct
 				}
+				app.partidos.total.representantes++
 			})
 			app.partidos.republicans.porcentaje =+ (parseFloat(app.partidos.republicans.porcentaje/app.partidos.republicans.representantes).toFixed(2))
 			app.partidos.independents.porcentaje =+ (parseFloat(app.partidos.independents.porcentaje/app.partidos.independents.representantes).toFixed(2))
 			app.partidos.democrats.porcentaje =+ (parseFloat(app.partidos.democrats.porcentaje/app.partidos.democrats.representantes).toFixed(2))
-
 			if(app.partidos.republicans.representantes==0){
 				app.partidos.republicans.porcentaje=0
 			}
@@ -94,12 +107,29 @@ var app = new Vue({
 			}
 			if(app.partidos.democrats.representantes==0){
 				app.partidos.democrats.porcentaje=0
+			}			
+			app.partidos.total.porcentaje = parseFloat((app.partidos.republicans.porcentaje+app.partidos.democrats.porcentaje+app.partidos.independents.porcentaje) / 3).toFixed(2)
+		},
+		tenPct(array,key,isAscendent){
+			let result
+			let i
+			let aux = isAscendent ? 
+						[...array].sort((a,b) => a[key] - b[key]).filter(j => j.total_votes !=0)
+					: 
+						[...array].sort((a,b) => b[key] - a[key]).filter(j => j.total_votes !=0)
+			let tenPct = parseInt(aux.length*0.1)
+
+			result = aux.slice(0,tenPct)
+
+			i = result.length
+
+			while(aux[i][key] == result[result.length - 1][key] && i < aux.length){
+				result.push(aux[i])
+				i++
 			}
-
-			
-			// estadisticas.totalPorcentaje = parseFloat((estadisticas.democratsVotes+estadisticas.republicansVotes+estadisticas.independentsVotes) / 3).toFixed(2)
-
-		}
+			return result
+		},
+		
 	},
 	computed:{
 		filtrarMiembros(){

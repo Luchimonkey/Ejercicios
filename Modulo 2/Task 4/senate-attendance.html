@@ -63,7 +63,18 @@
                     <th>% Voted with Prty</th>
                 </tr>
             </thead>
-            <tbody id="table1">
+            <tbody id="tablebody">
+                <tr v-for="(partidos, index) in partidos">
+                    <td>
+                        {{partidos.name}}
+                    </td>
+                    <td>
+                        {{partidos.representantes}}
+                    </td>
+                    <td>
+                        {{partidos.porcentaje}}%
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -81,7 +92,7 @@
                 </tr>
             </thead>
             <tbody id="tablebody">
-                <tr v-for="(member, index) in members">
+                <tr v-for="(member, index) in least_engaged">
                   <td>
                     <template v-if="member.url != ''">
                       <a :href="member.url">
@@ -113,7 +124,7 @@
                 </tr>
             </thead>
             <tbody id="tablebody">
-                <tr v-for="(member, index) in members">
+                <tr v-for="(member, index) in most_engaged">
                   <td>
                     <template v-if="member.url != ''">
                       <a :href="member.url">

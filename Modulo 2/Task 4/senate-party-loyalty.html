@@ -63,7 +63,18 @@
                     <th>% Voted with Prty</th>
                 </tr>
             </thead>
-            <tbody id="table1">
+            <tbody id="tablebody">
+                <tr v-for="(partidos, index) in partidos">
+                    <td>
+                        {{partidos.name}}
+                    </td>
+                    <td>
+                        {{partidos.representantes}}
+                    </td>
+                    <td>
+                        {{partidos.porcentaje}}%
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -80,8 +91,26 @@
                     <th>% Party Votes</th>
                 </tr>
             </thead>
-            <tbody id="table4">
-            </tbody>
+            <tbody id="tablebody">
+                <tr v-for="(member, index) in least_loyal">
+                  <td>
+                    <template v-if="member.url != ''">
+                      <a :href="member.url">
+                        {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                      </a>
+                    </template>
+                    <template v-else>
+                      {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                    </template>
+                  </td>
+                  <td>
+                    {{((member.votes_with_party_pct/100)*member.total_votes).toFixed(0)}}
+                  </td>
+                  <td>
+                    {{member.votes_with_party_pct}}%
+                  </td>
+                </tr>
+              </tbody>
         </table>
     </div>
     <div class="card border-dark" id="maindiv3">
@@ -94,8 +123,26 @@
                     <th>% Party Votes</th>
                 </tr>
             </thead>
-            <tbody id="table5">
-            </tbody>
+            <tbody id="tablebody">
+                <tr v-for="(member, index) in most_loyal">
+                  <td>
+                    <template v-if="member.url != ''">
+                      <a :href="member.url">
+                        {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                      </a>
+                    </template>
+                    <template v-else>
+                      {{member.first_name}} {{member.middle_name}} {{member.last_name}}
+                    </template>
+                  </td>
+                  <td>
+                    {{((member.votes_with_party_pct/100)*member.total_votes).toFixed(0)}}
+                  </td>
+                  <td>
+                    {{member.votes_with_party_pct}}%
+                  </td>
+                </tr>
+              </tbody>
         </table>
     </div>
 </div>
