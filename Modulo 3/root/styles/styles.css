@@ -1,0 +1,279 @@
+*{
+  margin: 0;
+  font-family: sans-serif;
+}
+body{
+  /* background: #f5eaea; */
+  /* background-image: url(background.jpg); */
+  background: #0f4c75;
+}
+/*header*/
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1b262c;
+  color: #ffffff;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 20vh;
+  width: 100%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+#small_header{
+  font-size: 150%;
+  background: #1b262c;
+  color: #ffffff;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 10vh;
+  width: 100%;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+#logo{
+  display: inline-block;
+  flex-direction: row;
+  width:  15%;
+  height:  15vw;
+  margin: 10px;
+  background: #1b262c;
+}
+/*nav*/
+nav.mobile{
+  color: #ffffff;
+  background: #1b262c;
+  position: -webkit-sticky; /* Safari */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+nav img{
+  width: 10vw;
+  padding: 2vw;
+}
+.links{
+  color: #ffffff;
+  margin: 5px 20px;
+}
+.links a{
+  color: #ffffff;
+  text-decoration: none;
+}
+#about{
+  word-spacing: 0px;
+}
+#info{
+  word-spacing: 0px;
+}
+/*contenido*/
+section{
+  font-size: 30px;
+  margin: 3vw;
+  color: black;
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 10vh;
+}
+.noMarginbottom{
+  margin-bottom: 0;
+}
+.newsImage{
+  width: 100%;
+}
+h2#aboutTitle{
+  text-align: center;
+}
+.regist{
+  padding: 20px;
+  text-align: center;
+}
+/*listas*/
+li.a{
+  list-style-type: square;
+}
+li.leters{
+  list-style: lower-alpha;
+}
+li.b{
+  list-style: circle;
+}
+span{
+  font-weight: bold;
+}
+
+  /* matches */
+#fixture{
+  background: lightgray;
+}
+.match{
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  margin: 0;
+  box-shadow: none;
+  border: solid lightgray;
+}
+.team{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  text-align: center;
+}
+.teamimage{
+  width: 15vw;
+}
+.wherewhen{
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ /*tablas*/
+ 
+  td{
+    padding: 1px 50px;
+  }
+  th{
+    padding: 10px 50px;
+    text-decoration: underline;
+    text-align: left;
+  }
+  th#location{
+    text-align: left;
+  }
+  div#moreinfo{
+    margin: 50px 50px;
+  }
+  #gameinfoh3{
+    margin: 5px 60px;
+  }
+  #artinfo{
+    margin: 5px 60px;
+  }
+  #addinfo{
+    margin: 50px 0px;
+  }
+  #questions{
+    margin: 50px 0px;
+  }
+  footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  span{
+    font-weight: bold;
+  }
+  h2#nysl{
+    text-align: center;
+  }
+  h3#reglas{
+    text-align: center;
+  }
+  h2#fixture{
+    color: #4d4646;
+  }
+  article#artinfo{
+    text-decoration: underline;
+  }
+  
+/*fomrs*/
+input[type], select {
+  padding: 12px 20px;
+  margin: 8px 10px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+}
+input[type]:focus {
+  border: 3px solid #5b5656;
+}
+input[type=submit] {
+  background-color: #5b5656;
+  color: white;
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+input[type=submit]:hover {
+  background-color: #f5eaea;
+}
+fieldset{
+  border-radius: 4px;
+  margin: 5px;
+}
+#firstlastname{
+  display: flex;
+  justify-content: space-between;
+}
+.datos2{
+  width: 40vw;
+}
+.address{
+  width: 99%;
+}
+#cityzip{
+  display: flex;
+  justify-content: space-between;
+}
+.parent{
+  width: 99%;
+}
+#phonemail{
+  display: flex;
+  justify-content: space-between;
+}
+.bdate{
+  display: flex;
+  flex-direction: row;
+}
+/*checkbox*/
+[type=checkbox]{
+  width: 20px;
+  height: 20px;
+}
+.checkb{
+  display: flex;
+  flex-direction: row;
+}
+#firstandsecond{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.closestschool{
+  width: 50%;
+}
+.columns{
+  display: flex;
+  flex-direction: column;
+}
+.columnas{
+  display: flex;
+  flex-direction: row;
+}
+.position{
+  display: flex;
+  flex-direction: row;
+}
+.gender{
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+}

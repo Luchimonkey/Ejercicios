@@ -1,0 +1,34 @@
+{
+    "teams": [
+        {
+            "name": "Ironman",
+            "abbreviation": "IRM",
+            "logo": "imagenes/teams/ironman.png"
+        },
+        {
+            "name": "Captain america",
+            "abbreviation": "CAP",
+            "logo": "imagenes/teams/captain_america.png"
+        },
+        {
+            "name": "Captain marvel",
+            "abbreviation": "CAM",
+            "logo": "imagenes/teams/captain_marvel.png"
+        },
+        {
+            "name": "Thanos",
+            "abbreviation": "THA",
+            "logo": "imagenes/teams/thanos.png"
+        },
+        {
+            "name": "thor",
+            "abbreviation": "THO",
+            "logo": "imagenes/teams/thor.png"
+        },
+        {
+            "name": "Guardian of the galaxy",
+            "abbreviation": "GOG",
+            "logo": "imagenes/teams/guardians.png"
+        }
+    ]
+}
