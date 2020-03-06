@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './components/Test';
-import Header from './components/Header';
+import About from './components/About';
 
 const container = document.getElementById('root')
-const header = document.getElementById('header')
-ReactDOM.render(<Test />, container)
-ReactDOM.render(<Header />, header)
+ReactDOM.render(<About />, container)
 
 // ReactDOM.render(__QUE__, __DONDE__);
 

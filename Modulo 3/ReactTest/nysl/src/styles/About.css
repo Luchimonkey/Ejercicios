@@ -1,0 +1,25 @@
+h2 #aboutTitle{
+    text-align: center;
+}
+.aboutUs{
+    width:95vw;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#contactSection{
+    margin-top: 10px;
+    width:95vw;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.aboutmisvis{
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.misvis{
+    width:45%;
+}

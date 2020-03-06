@@ -4,12 +4,13 @@ import aboutImg from '../images/icons/question_gray.png';
 import infoImg from '../images/icons/football_gray.png';
 import rulesImg from '../images/icons/championship_gray.png';
 import registrationImg from '../images/icons/user_gray.png';
+import '../styles/Test.css'
 
 class Test extends React.Component{
     render(){
         return(
             <div>
-                <nav >
+                <nav>
                     <div id="index"><img src={indexImg} alt="news" /></div>
                     <div id="about"><img src={aboutImg} alt="about" /></div>
                     <div id="info"><img src={infoImg} alt="gameinfo" /></div>
