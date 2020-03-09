@@ -25,8 +25,8 @@ class Register extends Component {
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
     }
-    handleSubmit(event) {
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(
+    handleSubmit = async () => {
+         await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(
             function(error){
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -38,6 +38,9 @@ class Register extends Component {
                 console.log(error);
             });
     }
+    // submit = async () => {
+    //     await firebase.auth().createUserWithEmailAndPassword(email, password);
+    // }
     render(){
         return(
             <div>
@@ -63,3 +66,25 @@ class Register extends Component {
 }
 
 export default Register
+
+/* <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script> */
