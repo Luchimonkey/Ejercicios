@@ -25,9 +25,7 @@ class Register extends Component {
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
     }
-    handleSubmit = async event => {
-        event.preventDefault();
-
+    handleSubmit = async () => {
          await firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(
             function(error){
                 var errorCode = error.code;

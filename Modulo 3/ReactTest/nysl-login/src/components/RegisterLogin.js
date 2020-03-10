@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import * as firebase from 'firebase/app';
+import React, { useState } from 'react';
+// import * as firebase from 'firebase/app';
 import 'firebase/auth'
 
 import {useFirebaseApp, useUser} from 'reactfire';
